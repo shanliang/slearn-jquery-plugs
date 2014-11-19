@@ -3,15 +3,25 @@
 	<head>
 		<style type="text/css">
 		</style>
-		<script type="text/javascript" src="../../../lib/jquery/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="../src/jquery.layer.js"></script>
+		<script type="text/javascript" src="../../../lib/seajs/sea.js"></script>
+		<script>
+		seajs.config({
+		  alias: {
+		    "jquery": "../../../lib/jquery/jquery-1.10.2.js"
+		  }
+		});
+		</script>
 	</head>
 	<body>
-		<input type="button" value="alert" />
+		<div id="test">Test</div>	
 	</body>
-	<script type="text/javascript">
-		$(function(){
-			$('button').layer();
+
+	<script>
+		seajs.use(['jquery', '../src/jquery-layer'], function ($) {
+			$('#test').layer({
+				type:'popup',
+				trigger:'click'
+			});
 		});
 	</script>
 </html>
