@@ -16,11 +16,11 @@ define({
 	close:function(){},
 	//自定义按钮,及事件
 	btns:[{
-					okText:'确定',
-					ok:function(){}
-				},
-				{
-					cancleText:'取消',
-					cancle:function(){}
-				}]
+			okText:'确定',
+			ok:function(){}
+		},
+		{
+			cancleText:'取消',
+			cancle:function(){}
+		}]
 });

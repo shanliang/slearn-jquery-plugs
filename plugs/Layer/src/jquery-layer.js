@@ -26,7 +26,7 @@ define(function(require){
 		},
 		render: function(){
 
-		},
+		},  
 		event: function(){
 			
 		}
