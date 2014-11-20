@@ -1,6 +1,7 @@
 /*
 * Author: Sandy Liang
 * Date: 2014-11-17
+* Des: 所有浮出层依赖的基类
 */
 define(function(require){
 	var $ = require('jquery');
@@ -11,6 +12,7 @@ define(function(require){
 		this.init();
 	}
 	$.extend(Layer.prototype,{
+		constructor: Layer,
 		//层Dom元素
 		layer: null,
 		//标记层是否打开
@@ -19,13 +21,11 @@ define(function(require){
 		rendered: false,
 		//初始化Layer
 		init: function(){
-			//绑定事件
-			var self = this;
-			this.event();
+
 		},		
-		show: function(){
+		show: function(){console.log('show');
 			var self = this;
-			if(!rendered){
+			if(!self.rendered){
 				self.render();
 			}else{
 				self.layer.show();
@@ -44,21 +44,9 @@ define(function(require){
 		render: function(){
 			var self = this;
 			self.rendered = true;
-		},
-		event: function(){
-			var self = this;
-			var elm = this.elm;
-			var triggerType = this.opts.triggerType;
-			elm.on(triggerType,function(){
-				self.show();
-			})
 		}
 
 	});
-
-	$.fn.layer = function(setting){
-		return new Layer(this,setting);
-	};
-
+	return Layer;
 });
 

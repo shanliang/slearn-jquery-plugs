@@ -17,11 +17,11 @@
 	</body>
 
 	<script>
-		seajs.use(['jquery', '../src/jquery-layer'], function ($) {
-			var layerObj = $('#test').layer({
-				content:'Hi,jQuery Plugs!'
+		seajs.use(['jquery', '../src/jquery-layer-popup'], function ($) {
+			var popupObj = $('#test').popup({
+				content:'Hi,jQuery Plug Popup!'
 			});
-			console.log(layerObj);
+			console.log(popupObj);
 		});
 	</script>
 </html>

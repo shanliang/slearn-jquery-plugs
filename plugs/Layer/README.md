@@ -1,4 +1,4 @@
-基础浮出层组件
+浮出层套件：popup/tip/select/autocomplete
 =
 
 ##功能
