@@ -11,7 +11,7 @@ define({
 	template:'<div class="ui-layer-popup"><div class="close">x</div><table><tr class="ui-layer-header"><td></td></tr><tr><td class="ui-layer-body"></td></tr><tr><td class="ui-layer-footer"></td></tr></tbale></div>',
 	zIndex:0,
 	//触发浮出层事件，可选：hover/click
-	triggerType:'hover',
+	triggerType:'click',
 	//关闭浮出层右上角x触发的回调
 	close:function(){},
 	//自定义按钮,及事件

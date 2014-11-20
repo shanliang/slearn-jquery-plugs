@@ -18,11 +18,10 @@
 
 	<script>
 		seajs.use(['jquery', '../src/jquery-layer'], function ($) {
-			$('#test').layer({
-				type:'popup',
-				trigger:'click',
-				content:'测试内容'
+			var layerObj = $('#test').layer({
+				content:'Hi,jQuery Plugs!'
 			});
+			console.log(layerObj);
 		});
 	</script>
 </html>
