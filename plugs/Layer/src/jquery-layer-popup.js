@@ -19,28 +19,43 @@ define(function(require){
 	$.extend(Popup.prototype,{	
 		constructor: Popup,
 		init: function(){console.log('popup init')
-			//绑定事件
 			var self = this;
-			self.event();
+			var elm = self.elm;
+			var triggerType = self.opts.triggerType;
+			self.event(elm,triggerType,function(){
+				self.show();
+			});
 		},
 		render: function(){
 			var self = this;
 			var opts = self.opts;
 			var content = opts.content;
+			var btns = opts.btns;
 			var layer = self.layer = $(opts.template);
-			var contentHolder = layer.find('[layer-holder="body"]');
-			contentHolder&&contentHolder.html(content);
+			var layerBody = layer.find('[layer-holder="body"]');
+			var layerClose = layer.find('[layer-holder="close"]');
+			var layerFooter = layer.find('[layer-holder="footer"]');
+			self.renderBtns(btns,layerFooter);
+			layerBody&&layerBody.html(content);
+			self.event(layerClose,'click',function(){
+				self.close();
+			});
 			$(document.body).append(layer);
 			self.rendered = true;
 		},
-		event: function(){console.log('popup event')
-			var self = this;
-			var elm = this.elm;
-			var triggerType = this.opts.triggerType;
+		event: function(elm,triggerType,callback){console.log('popup event')
 			elm.on(triggerType,function(){
-				self.show();
+				callback();
 			});
-
+		},
+		renderBtns: function(btns,btnwrapper){
+			if(btns.length){
+				var btnHtml = '';
+				for(var i = 0, len = btns.length; i<len; i++){
+					
+				}
+				btnwrapper.html(btnHtml);
+			}
 		}
 
 	});

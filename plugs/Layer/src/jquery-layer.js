@@ -19,7 +19,7 @@ define(function(require){
 		//标记层是否已经渲染
 		rendered: false,
 		//初始化Layer
-		init: function(){console.log('layer init')
+		init: function(){console.log('layer init');
 
 		},		
 		show: function(){console.log('show');
@@ -32,6 +32,8 @@ define(function(require){
 			this.open = true;
 		},
 		close: function(){
+			var self = this;
+			self.layer.hide();
 			this.open = false;
 		},
 		position: function(){

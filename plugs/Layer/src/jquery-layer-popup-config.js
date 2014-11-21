@@ -14,10 +14,14 @@ define({
 	//自定义按钮,及事件
 	btns:[{
 			okText:'确定',
-			ok:function(){}
+			ok:function(){
+				console.log('ok');
+			}
 		},
 		{
 			cancleText:'取消',
-			cancle:function(){}
+			cancle:function(){
+				console.log('cancle');
+			}
 		}]
 });
