@@ -1,5 +1,5 @@
 /*
-* Desc: Config
+* Desc: Layer Config
 */
 define({
 	//浮出层类型，可选项:popup/tip/select/autocomplete

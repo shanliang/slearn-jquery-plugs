@@ -6,10 +6,9 @@
 define(function(require){
 	var $ = require('jquery');
 	var defaults = require('../src/jquery-layer-config');
-	function Layer(elm,setting){
-		this.elm = elm;
+	function Layer(setting){
 		this.opts = $.extend(true,{},defaults,setting);
-		this.init();
+		this.name = 'Layer';
 	}
 	$.extend(Layer.prototype,{
 		constructor: Layer,
@@ -20,7 +19,7 @@ define(function(require){
 		//标记层是否已经渲染
 		rendered: false,
 		//初始化Layer
-		init: function(){
+		init: function(){console.log('layer init')
 
 		},		
 		show: function(){console.log('show');
