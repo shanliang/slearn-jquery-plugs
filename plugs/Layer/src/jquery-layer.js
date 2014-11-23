@@ -22,7 +22,7 @@ define(function(require){
 		init: function(){console.log('layer init');
 
 		},		
-		show: function(){console.log('show');
+		show: function(){
 			var self = this;
 			if(!self.rendered){
 				self.render();

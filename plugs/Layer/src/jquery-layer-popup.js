@@ -43,16 +43,21 @@ define(function(require){
 			$(document.body).append(layer);
 			self.rendered = true;
 		},
-		event: function(elm,triggerType,callback){console.log('popup event')
+		event: function(elm,triggerType,callback){
 			elm.on(triggerType,function(){
 				callback();
 			});
 		},
 		renderBtns: function(btns,btnwrapper){
+			var self = this;
 			if(btns.length){
-				var btnHtml = '';
+				var btnHtml = '',btnClass = '';
 				for(var i = 0, len = btns.length; i<len; i++){
-					
+					btnClass = 'ui-layer-btn-' + i; 
+					btnHtml +='<span class="'+ btnClass +'">' + btns[i].text + '</span>';
+					// self.event($('.' + btnClass,'click',function(){
+					// 	console.log('!!');
+					// } ))
 				}
 				btnwrapper.html(btnHtml);
 			}
