@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<style type="text/css">
-			.ui-layer-popup{ border: 1px solid #ff00ff; padding: 4px;}
-			.ui-layer-popup .close{ text-align: right;}
-		</style>
+		<link type="text/css" href="../css/ui-layer.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../../../lib/seajs/sea.js"></script>
 		<script>
 		seajs.config({
@@ -15,13 +12,28 @@
 		</script>
 	</head>
 	<body>
-		<div id="test">Test</div>	
+		<div id="test">TestPopup</div>	
 	</body>
 
 	<script>
 		seajs.use(['jquery', '../src/jquery-layer-popup'], function ($) {
 			var popupObj = $('#test').popup({
-				content:'Hi,jQuery Plug Popup!'
+				content:'Hi,jQuery Plug Popup!',
+				btns:[{
+					text:'Yes',
+					callback:function(){
+						console.log('ok~~~');
+					},
+					className:'btnYes'
+				},
+				{
+					text:'No',
+					callback:function(){
+						console.log('cancle~~~');
+						popupObj.close();
+					},
+					className:'btnNo'
+				}]
 			});
 			console.log(popupObj);
 		});

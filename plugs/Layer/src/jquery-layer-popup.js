@@ -18,11 +18,11 @@ define(function(require){
 	Popup.prototype = new LayerClass();
 	$.extend(Popup.prototype,{	
 		constructor: Popup,
-		init: function(){console.log('popup init')
+		init: function(){
 			var self = this;
 			var elm = self.elm;
 			var triggerType = self.opts.triggerType;
-			self.event(elm,triggerType,function(){
+			elm.on(triggerType,function(){
 				self.show();
 			});
 		},
@@ -35,29 +35,28 @@ define(function(require){
 			var layerBody = layer.find('[layer-holder="body"]');
 			var layerClose = layer.find('[layer-holder="close"]');
 			var layerFooter = layer.find('[layer-holder="footer"]');
+			var closeCallback = opts.close;
 			self.renderBtns(btns,layerFooter);
-			layerBody&&layerBody.html(content);
-			self.event(layerClose,'click',function(){
+			layerBody && layerBody.html(content);
+			layerClose.on('click',function(){
+				closeCallback();
 				self.close();
 			});
 			$(document.body).append(layer);
 			self.rendered = true;
 		},
-		event: function(elm,triggerType,callback){
-			elm.on(triggerType,function(){
-				callback();
-			});
-		},
 		renderBtns: function(btns,btnwrapper){
 			var self = this;
 			if(btns.length){
-				var btnHtml = '',btnClass = '';
+				var btnHtml = $('<div/>');
 				for(var i = 0, len = btns.length; i<len; i++){
-					btnClass = 'ui-layer-btn-' + i; 
-					btnHtml +='<span class="'+ btnClass +'">' + btns[i].text + '</span>';
-					// self.event($('.' + btnClass,'click',function(){
-					// 	console.log('!!');
-					// } ))
+					$btn = $('<button class="ui-layer-btn">' + btns[i].text + '</button>');
+					btnFn = btns[i].callback;
+					btns[i].className && $btn.addClass(btns[i].className);
+					btnHtml.append($btn);
+					$btn.on('click',{callback: btnFn},function(event){
+						event.data.callback();
+					});
 				}
 				btnwrapper.html(btnHtml);
 			}

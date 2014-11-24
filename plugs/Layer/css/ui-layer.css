@@ -1,0 +1,6 @@
+.ui-layer-popup{ border: 2px solid #337ab7; padding: 4px; position: relative;}
+.ui-layer-popup .close{ position: absolute; right: 10px; top: 10px; font-size: 30px; color: #337ab7}
+.ui-layer-btn{ margin-right: 20px;}
+.ui-layer-body{ padding: 20px; text-align: center; font-size: 16px;}
+.ui-layer-footer{ padding: 0 20px 20px 20px;}
+.ui-layer-btn{ cursor: pointer; color: #333; background-color: #e6e6e6; border:1px solid #adadad; border-radius: 3px; padding: 6px 14px;}
