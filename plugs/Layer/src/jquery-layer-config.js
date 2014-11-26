@@ -11,5 +11,6 @@ define({
 	template:'',
 	zIndex:0,
 	//触发浮出层事件，可选：hover/click/toggle
-	triggerType:''
+	triggerType:'',
+	position:''
 });

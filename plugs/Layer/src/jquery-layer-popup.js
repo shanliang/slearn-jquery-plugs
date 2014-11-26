@@ -30,13 +30,16 @@ define(function(require){
 			var self = this;
 			var opts = self.opts;
 			var content = opts.content;
+			var title = opts.title;
 			var btns = opts.btns;
 			var layer = self.layer = $(opts.template);
 			var layerBody = layer.find('[layer-holder="body"]');
+			var layerHeader = layer.find('[layer-holder="header"]');
 			var layerClose = layer.find('[layer-holder="close"]');
 			var layerFooter = layer.find('[layer-holder="footer"]');
 			var closeCallback = opts.close;
 			self.renderBtns(btns,layerFooter);
+			layerHeader && layerHeader.html(title);
 			layerBody && layerBody.html(content);
 			layerClose.on('click',function(){
 				closeCallback();

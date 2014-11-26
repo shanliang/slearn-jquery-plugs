@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link type="text/css" href="../css/reset.css" rel="stylesheet"/>
 		<link type="text/css" href="../css/ui-layer.css" rel="stylesheet"/>
 		<script type="text/javascript" src="../../../lib/seajs/sea.js"></script>
 		<script>
@@ -19,6 +20,7 @@
 		seajs.use(['jquery', '../src/jquery-layer-popup'], function ($) {
 			var popupObj = $('#test').popup({
 				content:'Hi,jQuery Plug Popup!',
+				title:'Hi,title!',
 				btns:[{
 					text:'Yes',
 					callback:function(){
