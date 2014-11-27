@@ -1,8 +1,9 @@
-.ui-layer-popup{ border: 2px solid #337ab7; position: absolute;}
-.ui-layer-popup .close{ position: absolute; right: 10px; top: 0px; font-size: 20px; color: #337ab7; cursor: pointer;}
-.ui-layer-btn{ margin-right: 20px;}
-.ui-layer-body{ padding: 20px; text-align: center; font-size: 16px;}
-.ui-layer-header{ border-bottom: 1px solid #ddd; padding: 4px;}
-.ui-layer-footer{ padding: 10px 20px 10px 20px; border-top: 1px solid #ddd; background: #f4f4f4;}
-.ui-layer-btn{ cursor: pointer; color: #333; background-color: #e6e6e6; border:1px solid #adadad; border-radius: 3px; padding: 6px 14px;}
+.ui-layer-popup{ border: 2px solid #6699FF; border-radius: 4px;}
+.ui-layer-popup .close{ position: absolute; right: 10px; top: 0px; font-size: 20px; color: #6699FF; cursor: pointer;}
+.ui-layer-body{ padding: 30px; text-align: center; font-size: 16px;}
+.ui-layer-header{ border-bottom: 1px solid #efefef; padding: 4px; font-weight: bold;}
+.ui-layer-footer{ padding: 10px 20px 10px 20px; border-top: 1px solid #efefef; background: #f4f4f4;}
+.ui-layer-btn-wrapper{ float: right;}
+.ui-layer-btn{ margin-right: 10px; cursor: pointer; color: #333; background-color: #e6e6e6; border:1px solid #adadad; border-radius: 3px; padding: 6px 14px;}
+.ui-layer-btn-highlight { background: #6699FF; color: #fff;}
 .ui-layer-popup table{ width: 100%;}

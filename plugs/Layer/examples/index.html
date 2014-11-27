@@ -13,31 +13,36 @@
 		</script>
 	</head>
 	<body>
-		<div id="test">TestPopup</div>	
+		<div id="test1">TestPopup1</div>
+		<br>
+		<div id="test2">TestPopup2</div>
+
 	</body>
 
 	<script>
 		seajs.use(['jquery', '../src/jquery-layer-popup'], function ($) {
-			var popupObj = $('#test').popup({
-				content:'Hi,jQuery Plug Popup!',
-				title:'Hi,title!',
+			var popupObj1 = $('#test1').popup({
+				content:'Hi,jQuery Plug Popup!Ho ho ho!',
+				title:'Popup Title~~',
 				btns:[{
 					text:'Yes',
+					active: true,
 					callback:function(){
-						console.log('ok~~~');
+						alert('ok~~~');
 					},
 					className:'btnYes'
 				},
 				{
 					text:'No',
 					callback:function(){
-						console.log('cancle~~~');
-						popupObj.close();
+						alert('cancle~~~');
+						popupObj1.close();
 					},
 					className:'btnNo'
 				}]
 			});
-			console.log(popupObj);
+
+			var popupObj2 = $('#test2').popup();
 		});
 	</script>
 </html>

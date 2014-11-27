@@ -13,20 +13,21 @@ define({
 	position:'center',
 	//关闭浮出层右上角x触发的回调
 	close:function(){
-		console.log('close');
+		alert('close');
 	},
 	//自定义按钮,及事件
 	btns:[{
 			text:'Yes',
 			callback:function(){
-				console.log('ok');
+				alert('ok');
 			},
+			active:true,
 			className:'btnYes'
 		},
 		{
 			text:'No',
 			callback:function(){
-				console.log('cancle');
+				alert('cancle');
 			},
 			className:'btnNo'
 		}]

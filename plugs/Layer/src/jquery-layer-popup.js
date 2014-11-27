@@ -38,14 +38,23 @@ define(function(require){
 			var layerClose = layer.find('[layer-holder="close"]');
 			var layerFooter = layer.find('[layer-holder="footer"]');
 			var closeCallback = opts.close;
-			self.renderBtns(btns,layerFooter);
+			layer.css({
+				position:'absolute',
+				display:'none'
+			})
+			.appendTo('body');
 			layerHeader && layerHeader.html(title);
 			layerBody && layerBody.html(content);
+			self.renderBtns(btns,layerFooter);
 			layerClose.on('click',function(){
 				closeCallback();
 				self.close();
 			});
-			$(document.body).append(layer);
+			self.position();
+			layer.show();
+			$(window).on('resize',function(){
+				self.position();
+			});
 			self.rendered = true;
 		},
 		renderBtns: function(btns,btnwrapper){
@@ -56,7 +65,8 @@ define(function(require){
 					$btn = $('<button class="ui-layer-btn">' + btns[i].text + '</button>');
 					btnFn = btns[i].callback;
 					btns[i].className && $btn.addClass(btns[i].className);
-					btnHtml.append($btn);
+					btns[i].active && $btn.addClass('ui-layer-btn-highlight')
+					btnHtml.addClass('ui-layer-btn-wrapper').append($btn);
 					$btn.on('click',{callback: btnFn},function(event){
 						event.data.callback();
 					});

@@ -37,6 +37,15 @@ define(function(require){
 			this.open = false;
 		},
 		position: function(){
+			var layer = this.layer;
+			var windowW = window.innerWidth;
+			var windowH = window.innerHeight;
+			var layerW = layer.width();
+			var layerH = layer.height();
+			layer.css({
+				left: (windowW - layerW)/2 + 'px',
+				top: (windowH - layerH)*(2/5) + 'px'
+			});
 
 		},
 		destroy: function(){
